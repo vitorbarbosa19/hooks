@@ -8,6 +8,6 @@ export const App = () => {
 		fetchUser()
 	}, [])
 	if (user)
-		return <div>{user}</div>
+		return <div>{user[0].customer.email}</div>
 	return <div>No user</div>
 }

@@ -8,12 +8,10 @@ const credential = new AnonymousCredential()
 
 export const connectDb = async () => {
 	try {
-		const client = Stitch.initializeDefaultAppClient(APP_ID)
-		const db = client.getServiceClient(factory, SERVICE_NAME).db(DB_NAME)
-		const { id: userId } = await client.auth.loginWithCredential(credential)
-		console.log(userId)
-		return userId
-		// return await db.collection('Users').find({ owner_id: userId }).asArray()
+		const mongodb = Stitch.initializeDefaultAppClient(APP_ID).getServiceClient(factory, SERVICE_NAME)
+		const sales = await mongodb.db('sample_supplies').collection('sales').find({}, { limit: 100 }).toArray()
+		console.log(sales)
+		return sales
 	} catch (error) {
 		console.log(error)
 	}
