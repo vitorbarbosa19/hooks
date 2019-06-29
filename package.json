@@ -17,6 +17,7 @@
     "parcel-bundler": "^1.12.3"
   },
   "dependencies": {
+    "mongodb-stitch-browser-sdk": "^4.4.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"

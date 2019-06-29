@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from 'react'
+import { connectDb } from './utils/connectDb'
 
 export const App = () => {
-	const [users, setUsers] = useState([])
+	const [user, setUser] = useState('')
 	useEffect(() => {
-		const fetchData = async () => {
-			const response = await fetch('https://api.github.com/users')
-			const data = await response.json()
-			console.log(data)
-			setUsers(data)
-		}
-		fetchData()
+		const fetchUser = async () => setUser(await connectDb())
+		fetchUser()
 	}, [])
-	if (users.length)
-		return <div>{users[0].login}</div>
-	return <div>No users</div>
+	if (user)
+		return <div>{user}</div>
+	return <div>No user</div>
 }
