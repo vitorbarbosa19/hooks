@@ -3,3 +3,5 @@ dist
 node_modules
 .DS_Store
 .env
+auth_providers
+admin_api_secret.js
